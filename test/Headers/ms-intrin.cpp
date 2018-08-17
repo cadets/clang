@@ -42,6 +42,8 @@ void f() {
   __stosw(0, 0, 0);
 
 #ifdef _M_X64
+  __shiftleft128(1, 2, 3);
+  __shiftright128(1, 2, 3);
   __movsq(0, 0, 0);
   __stosq(0, 0, 0);
 #endif
@@ -63,5 +65,9 @@ void f() {
 
 #ifdef _M_ARM
   __dmb(_ARM_BARRIER_ISHST);
+#endif
+
+#ifdef _M_ARM64
+  __dmb(_ARM64_BARRIER_SY);
 #endif
 }
